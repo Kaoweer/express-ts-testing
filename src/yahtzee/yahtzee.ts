@@ -2,8 +2,11 @@ type DiceType = 1 | 2 | 3 | 4 | 5 | 6;
 export type DiceArrayType = [DiceType, DiceType, DiceType, DiceType, DiceType];
 
 class Yahtzee {
-  calculateDicesByTarget(dices: DiceArrayType, target: DiceType): number {
+  calculateDicesByTarget(dices: DiceArrayType, target: number): number {
     let score: number = 0;
+    if (target < 1 || target > 6) {
+      throw new Error("Invalid target");
+    }
     //   if (target == 1) {
     //     for (let i = 0; i < dices.length; i++) {
     //       if (dices[i] == 1) {

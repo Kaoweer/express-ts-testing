@@ -109,3 +109,121 @@ it("ได้คะแนนเท่ากับ 4 เมื่อส่ง dic
 
   expect(result).toBe(expected);
 });
+
+it("ได้คะแนนเท่ากับ 8 เมื่อส่ง dices เป็น [5,2,4,4,5] และ target เป็น 4", () => {
+  const dices: DiceArrayType = [5, 2, 4, 4, 5];
+  const target = 4;
+  const expected = 8;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 0 เมื่อส่ง dices เป็น [6,1,3,6,5] และ target เป็น 4", () => {
+  const dices: DiceArrayType = [6, 1, 3, 6, 5];
+  const target = 4;
+  const expected = 0;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 5 เมื่อส่ง dices เป็น [1,2,3,4,5] และ target เป็น 5", () => {
+  const dices: DiceArrayType = [1, 2, 3, 4, 5];
+  const target = 5;
+  const expected = 5;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 15 เมื่อส่ง dices เป็น [5,2,3,5,5] และ target เป็น 5", () => {
+  const dices: DiceArrayType = [5, 2, 3, 5, 5];
+  const target = 5;
+  const expected = 15;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 0 เมื่อส่ง dices เป็น [1,2,3,4,4] และ target เป็น 5", () => {
+  const dices: DiceArrayType = [1, 2, 3, 4, 4];
+  const target = 5;
+  const expected = 0;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 6 เมื่อส่ง dices เป็น [4,3,6,1,2] และ target เป็น 6", () => {
+  const dices: DiceArrayType = [4, 3, 6, 1, 2];
+  const target = 6;
+  const expected = 6;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 30 เมื่อส่ง dices เป็น [6,6,6,6,6] และ target เป็น 6", () => {
+  const dices: DiceArrayType = [6, 6, 6, 6, 6];
+  const target = 6;
+  const expected = 30;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("ได้คะแนนเท่ากับ 0 เมื่อส่ง dices เป็น [4,4,5,5,3] และ target เป็น 6", () => {
+  const dices: DiceArrayType = [4, 4, 5, 5, 3];
+  const target = 6;
+  const expected = 0;
+
+  const yahtzee = new Yahtzee();
+  const result = yahtzee.calculateDicesByTarget(dices, target);
+
+  expect(result).toBe(expected);
+});
+
+it("แจ้ง Error 'Invalid target' เมื่อส่ง dices เป็น [1,1,1,1,1] และ target เป็น 0", () => {
+  const dices: DiceArrayType = [1, 1, 1, 1, 1];
+  const target = 0;
+  const expected = "Invalid target";
+
+  const yahtzee = new Yahtzee();
+
+  expect(() => yahtzee.calculateDicesByTarget(dices, target)).toThrow(expected);
+});
+
+it("แจ้ง Error 'Invalid target' เมื่อส่ง dices เป็น [1,1,1,1,1] และ target เป็น -1", () => {
+  const dices: DiceArrayType = [1, 1, 1, 1, 1];
+  const target = -1;
+  const expected = "Invalid target";
+
+  const yahtzee = new Yahtzee();
+
+  expect(() => yahtzee.calculateDicesByTarget(dices, target)).toThrow(expected);
+});
+
+it("แจ้ง Error 'Invalid target' เมื่อส่ง dices เป็น [2,2,2,2,2] และ target เป็น 7", () => {
+  const dices: DiceArrayType = [2, 2, 2, 2, 2];
+  const target = 7;
+  const expected = "Invalid target";
+
+  const yahtzee = new Yahtzee();
+
+  expect(() => yahtzee.calculateDicesByTarget(dices, target)).toThrow(expected);
+});
