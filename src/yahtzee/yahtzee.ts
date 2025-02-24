@@ -1,5 +1,5 @@
-type DiceType = 1 | 2 | 3 | 4 | 5 | 6;
-type TargetType =
+export type DiceType = 1 | 2 | 3 | 4 | 5 | 6;
+export type TargetType =
   | DiceType
   | "Chance"
   | "Yahtzee"
