@@ -1,7 +1,11 @@
 import { IScoreData } from "./model/score.model";
 import YahtzeeRepository from "./yahtzee.repository";
+import Yahtzee from "./yahtzee";
 class YahtzeeService {
-  constructor(private yahtzeeRespository: YahtzeeRepository) {}
+  constructor(
+    private yahtzeeRespository: YahtzeeRepository,
+    private yahtzee: Yahtzee
+  ) {}
 
   async createScore(score: IScoreData): Promise<IScoreData> {
     try {
@@ -16,6 +20,15 @@ class YahtzeeService {
     } catch (error) {
       throw error;
     }
+  }
+  async updateScoreByGame(gameId: string, requestData: any) {
+    try {
+      this.yahtzee.calculateScoreGateway();
+      return await this.yahtzeeRespository.updateScoreByGame(
+        gameId,
+        fieldScore
+      );
+    } catch (error) {}
   }
 }
 

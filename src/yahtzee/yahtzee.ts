@@ -9,6 +9,11 @@ export type TargetType =
 export type DiceArrayType = [DiceType, DiceType, DiceType, DiceType, DiceType];
 
 class Yahtzee {
+  calculateScoreGateway(dices: DiceArrayType, target: TargetType) {
+    if (target === "Chance") return this.calculateDicesByChance(dices, target);
+    // Continue gateway logic
+  }
+
   calculateDicesByTarget(dices: DiceArrayType, target: number): number {
     let score: number = 0;
     if (target < 1 || target > 6) {

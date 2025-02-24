@@ -4,13 +4,15 @@ import mongoose from "mongoose";
 import yahtzeeController from "./yahtzee/yahtzee.controller";
 import YahtzeeRepository from "./yahtzee/yahtzee.repository";
 import YahtzeeService from "./yahtzee/yahtzee.service";
+import Yahtzee from "./yahtzee/yahtzee";
 
 const app = express();
 const port = process.env.PORT || 3000;
 const dburi = process.env.MONGODB_URI || "mongodb://localhost:27017/";
 
 const yahtzeeRepository = new YahtzeeRepository();
-const yahtzeeService = new YahtzeeService(yahtzeeRepository);
+const yhatzee = new Yahtzee();
+const yahtzeeService = new YahtzeeService(yahtzeeRepository, yhatzee);
 const yhatzeeController = new yahtzeeController(yahtzeeService);
 
 app.use(cors());
