@@ -21,15 +21,15 @@ class YahtzeeService {
       throw error;
     }
   }
-  async updateScoreByGame(gameId: string, requestData: any) {
-    try {
-      this.yahtzee.calculateScoreGateway();
-      return await this.yahtzeeRespository.updateScoreByGame(
-        gameId,
-        fieldScore
-      );
-    } catch (error) {}
-  }
+  // async updateScoreByGame(gameId: string, requestData: any) {
+  //   try {
+  //     this.yahtzee.calculateScoreGateway();
+  //     return await this.yahtzeeRespository.updateScoreByGame(
+  //       gameId,
+  //       fieldScore
+  //     );
+  //   } catch (error) {}
+  // }
 }
 
 export default YahtzeeService;

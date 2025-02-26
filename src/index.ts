@@ -5,6 +5,10 @@ import yahtzeeController from "./yahtzee/yahtzee.controller";
 import YahtzeeRepository from "./yahtzee/yahtzee.repository";
 import YahtzeeService from "./yahtzee/yahtzee.service";
 import Yahtzee from "./yahtzee/yahtzee";
+import dotenv from "dotenv"; // Import dotenv
+import path from "path";
+
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,7 +27,7 @@ mongoose
   .then(() => console.log("DB connected"))
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
-app.get("/yahtzee", yhatzeeController.getScoreByGame);
+// app.get("/yahtzee", yhatzeeController.getScoreByGame);
 app.post("/yahtzee", yhatzeeController.createScore);
 app.patch("/yahtzee");
 

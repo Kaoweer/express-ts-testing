@@ -6,7 +6,7 @@ class YahtzeeRepository {
   }
 
   async getScoreByGame(gameId: string): Promise<IscoreSchema | null> {
-    return await scoreModel.findOne({ _id: gameId });
+    return await scoreModel.findOne({ game: gameId });
   }
 
   async updateScoreByGame(
